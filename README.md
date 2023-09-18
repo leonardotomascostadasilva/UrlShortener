@@ -23,15 +23,15 @@ Esta é uma API simples em C# que permite encurtar URLs usando a biblioteca Nano
 2. Navegue até o diretório do projeto:
     
     ```bash
-       cd seu-repositorio /UrlShortener/src/UrlShortner.App
+    cd /UrlShortener/src/UrlShortner.App
  
 3. Execute o comando para criar e iniciar o ambiente Docker:
      ```bash
-           docker-compose up -d
+     docker-compose up -d
  
 4. No mesmo diretorio criar as migrações para EF Core?
     ```bash
-            add-migration 
+    add-migration 
 
 5. Aplicação pronta para uso
 
