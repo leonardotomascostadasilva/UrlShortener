@@ -29,7 +29,7 @@ Esta é uma API simples em C# que permite encurtar URLs usando a biblioteca Nano
      ```bash
      docker-compose up -d
  
-4. No mesmo diretorio criar as migrações para EF Core?
+4. No mesmo diretorio criar as migrações para EF Core:
     ```bash
     add-migration 
 
