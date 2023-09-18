@@ -11,7 +11,7 @@ public sealed class GetUrlShortnerByIdQueryHandler : IRequestHandler<GetUrlShort
 
     public async Task<string?> Handle(GetUrlShortnerByIdQuery request, CancellationToken cancellationToken)
     {
-        var entity = await _repository.FirstOrDefaultAsync<ShortenedUrl>(s => s.Code == request.Code);
+        var entity = await _repository.FirstOrDefaultAsync<ShortenedUrl>(s => s.Code == request.Code, request.Code);
 
         if (entity is null)
         {

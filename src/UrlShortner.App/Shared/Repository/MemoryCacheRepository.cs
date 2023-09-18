@@ -16,20 +16,20 @@ public class MemoryCacheRepository : IRepository
         _memoryCache = memoryCache;
     }
 
-    public async Task<T?> FirstOrDefaultAsync<T>(Expression<Func<T, bool>> predicate) where T : Entity
+    public async Task<TEntity?> FirstOrDefaultAsync<TEntity>(Expression<Func<TEntity, bool>> predicate, string code) where TEntity : Entity
     {
-        string key = $"{predicate}";
+        string key = $"key-{code}";
         return await _memoryCache.GetOrCreateAsync(
             key,
             entry =>
             {
                 entry.SetAbsoluteExpiration(TimeSpan.FromMinutes(1));
 
-                return _decorated.FirstOrDefaultAsync(predicate);
+                return _decorated.FirstOrDefaultAsync(predicate, code);
             });
     }
 
-    public async Task InsertAsync<T>(T entity) where T : Entity
+    public async Task InsertAsync<TEntity>(TEntity entity) where TEntity : Entity
     {
        await _decorated.InsertAsync(entity);
     }
