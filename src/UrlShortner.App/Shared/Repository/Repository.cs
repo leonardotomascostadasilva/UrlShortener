@@ -11,7 +11,7 @@ public class Repository : IRepository
 
     public Repository(ApplicationDbContext dbContext) => _dbContext = dbContext;
 
-    public async Task<TEntity?> FirstOrDefaultAsync<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : Entity
+    public async Task<TEntity?> FirstOrDefaultAsync<TEntity>(Expression<Func<TEntity, bool>> predicate, string code) where TEntity : Entity
     {
       var entity = await _dbContext.Set<TEntity>().FirstOrDefaultAsync(predicate);
 
